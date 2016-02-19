@@ -35,46 +35,46 @@ public class CardGenerator {
             //uses the modulus to find the remainder of division 
                 //and therefore the number within its suit
             
-        // change numbers 11-13 to Jack-King
-        switch ( cardNum ){
+        // change numbers so 1= ace, 2-10 = 2-10, and 11-13 = Jack-King
+        switch ( cardNum ){ //switch cardNumbers 
             case 1:
-                iD = "Ace";
+                iD = "Ace"; //1 = ace
                 break;
             case 2:
-                iD = "2";
+                iD = "2"; //2 = 2
                 break;
             case 3:
-                iD = "3";
+                iD = "3";//3 = 3
                 break;
             case 4:
-                iD = "4";
+                iD = "4";//4 = 4
                 break;
             case 5:
-                iD = "5";
+                iD = "5";//5 = 5
                 break;
             case 6:
-                iD = "6";
+                iD = "6";//6 = 6
                 break;
             case 7:
-                iD = "7";
+                iD = "7";//7 = 7
                 break;
             case 8:
-                iD = "8";
+                iD = "8";//8 = 8
                 break;
             case 9:
-                iD = "9";
+                iD = "9";//9 = 9
                 break;
             case 10:
-                iD = "10";
+                iD = "10";//10 = 10
                 break;
             case 11:
-                iD = "Jack";
+                iD = "Jack"; //11 = jack
                 break;
             case 12:
-                iD = "Queen";
+                iD = "Queen"; //12 = queen
                 break;
-            case 13:
-                iD = "King";
+            default: //the only cardNum left is 13
+                iD = "King"; //13 = king
                 break;
         }
         
