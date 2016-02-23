@@ -18,17 +18,17 @@ public class ToHex{ //class
         //prompts the user to enter RGB
         
     //validate inputs as integers
-    while( !myScanner.hasNextDouble() ){
+    while( !myScanner.hasNextInt() ){
         System.out.println("Sorry, enter a valid integer.");
         myScanner.nextLine();
     }
     
     
-    double r = myScanner.nextDouble();
+    int r = myScanner.nextInt();
         //allows for user to type R value
-    double g = myScanner.nextDouble();
+    int g = myScanner.nextInt();
         //allows for user to type G value
-    double b = myScanner.nextDouble();
+    int b = myScanner.nextInt();
         //allows for user to type B value
     
     //now create if statements so that it only runs if all inputs are within range
@@ -40,20 +40,20 @@ public class ToHex{ //class
             //convert to hexadecimal
     
             //first, take the remainder after dived by 16
-            int rHex1 = (int)(r) % 16;
+            int rHex1 = r % 16;
                  //gives an integer between 0 and 15 for r value
-            int gHex1 = (int)(g % 16);
+            int gHex1 = g % 16;
                  //gives an integer between 0 and 15 for g value
-            int bHex1 = (int)(b % 16);
+            int bHex1 = b % 16;
                   //gives an integer between 0 and 15 for b value
     
     
             //now, subtract the double by the integer (0-15)
-            int rHex2 = (int)(r - rHex1);
+            int rHex2 = r - rHex1;
                 //gives a mutiple of 16 from 0-240 for the second r hexadecimal variable
-            int gHex2 = (int)(g - gHex1);
+            int gHex2 = g - gHex1;
                 //gives a mutiple of 16 from 0-240 for the second g hexadecimal variable
-            int bHex2 = (int)(b - bHex1);
+            int bHex2 = b - bHex1;
                 //gives a mutiple of 16 from 0-240 for the second b hexadecimal variable
     
     

@@ -24,7 +24,7 @@ public class Exam2041 {
           //  y = 2.1; 
             //System.out.println(y +"k= " + k);
             
-        int k = 50;
+    /*    int k = 50;
         int j = 12;
         int n = 5;
         int v = n++;
@@ -40,7 +40,41 @@ public class Exam2041 {
          } 
 System.out.println(j+" "+k);
 System.out.println(v);
-            
-            
+    */
+   /* int k = 22;
+    char y = 'y';
+    char Y  = 'Y';
+    char n = 'n';
+    char N = 'N';
+    char x = 'N';
+    
+    switch (x){
+        case 'y':
+        System.out.println('y');
+    case 'Y': 
+        System.out.println('Y'); 
+        k /= 2;
+    case 'n':
+        break;
+    case 'N':
+        System.out.println('N');
+        k += 5;
+        break;
+    default:
+        System.out.println("default ");
+        k *= 5;
+    }
+    System.out.printf("k = %2.2f\n", (double)k);
+*/
+        import java.util.Scanner;
+        Scanner myScanner = new Scanner (System.in);
+        //prompt
+        System.out.println("Please enter a 5-digit positive int: ");
+        //vallidate input
+        while (!myScanner.hasNextInt() ){
+            System.out.print("Sorry, please enter a real int.");
+            myScanner.nextLine();
+        }
+        
     }
 }
