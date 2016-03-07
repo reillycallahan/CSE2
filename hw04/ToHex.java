@@ -16,14 +16,13 @@ public class ToHex{ //class
     //collect inputs 
     System.out.print("Enter 3 numbers as RGB values: ");
         //prompts the user to enter RGB
-        
+    
     //validate inputs as integers
     while( !myScanner.hasNextInt() ){
         System.out.println("Sorry, enter a valid integer.");
         myScanner.nextLine();
     }
-    
-    
+     
     int r = myScanner.nextInt();
         //allows for user to type R value
     int g = myScanner.nextInt();
