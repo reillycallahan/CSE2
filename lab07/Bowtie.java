@@ -72,9 +72,36 @@ public class Bowtie{//class
                 
                 //break;
             }*/
+            int nStars = 9;
+            int spaces = nStars / 2;
             String temp = "";
-            for(int nStars = 9; nStars > 0; nStars--){
-	            for( int j = 9; j > 0; j--){
+            //for(nStars = 9; nStars > 0; nStars--){ //this was giving 9-1 stars, but it was going too many times
+	            for( int i = 1; i <= spaces; i++ ){ //for i  between 1 and n...
+                    for( int j = 1; j < (i + 1); j++ ){// for j between 1 and (i+1)... 
+                        System.out.print(i); //print i = x, x number of times. this foes in an increasing direction
+                      //when i = 2, you want to print 7 stars
+                      
+                        
+                       
+                    }
+                    
+                    for(int k = i; k <= nStars; k++){ //not sure if i use this, or the one below
+                    //for(nStars = 9; nStars > 0; nStars--){
+        	           System.out.print("*");
+        	           //we dont want this to completely start over. its going from 0-9 every loop
+        	           //when i=2, we want nStars - 1 to print
+        	           k = k + 1;
+        	           
+        	                
+        	       }// end of j= 1 --> i+1 loop
+                    if( i == spaces ){
+                        
+                    } 
+                    else{
+                        System.out.println(" ");//enter a new line
+                    }
+                }
+                /* for( int j = 9; j > 0; j--){
 	                
 	                while ( j <= 9 ){
 	                    System.out.print(" ");
@@ -82,15 +109,15 @@ public class Bowtie{//class
 	                }
 	                j = nStars - 2;
 	                break;
-	            }
-	            for(int i = 0; i < nStars; i++){
-		            
-		            System.out.print("*");
-	            }
-	            
+	            }*/
+	            /*for(int i = 0; i < nStars; i++){
+	                System.out.print("*");
+	            }*/
 	             System.out.println(" ");
 	             nStars = nStars - 1;
-            }
+           // }
+           
+            // end of i=1 --> n loop
          //   nStars = nStars - 1;
            // j = nStars - 1;
            // System.out.println(nStars + " " + j);
