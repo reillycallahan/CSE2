@@ -240,7 +240,7 @@ public class Games{
         
         int length = unscram.length(); //comput the length of the word you've entered
         String scrambled = "";
-        if( length <= 4 ){//if the word is 3/less letters...
+        if( length <= 3 ){//if the word is 3/less letters...
             System.out.println(unscram); //just print the given word
             
         }
@@ -248,12 +248,14 @@ public class Games{
             
             
             //i tried to start by scrambling the middle two letters...
-            for(int i = 1; i <= length; i++){ //for i from 1-> length
+            for(int i = 1; i < (length + 1); i++){ //for i from 1-> length
                 char letters = unscram.charAt(i); //letters = all letters that make the unscrambled word
-                if( i == length / 2 + 1){ //this finds the middle letter
-                    scrambled = scrambled + unscram.charAt(i + 1) + unscram.charAt(i);//put the letter thats after the next letter before that letter
+               
+                while( i != 1 && i < length){ //if its not the first or the last... 
+                    scrambled = scrambled + unscram.charAt(i) + unscram.charAt(i - 1);//put the letter thats after the next letter before that letter
                         //ie put letter B before letter A
-                    letters = unscram.charAt(i++);// increment the next letter 
+                    i++;// increment the next letter
+                    letters = unscram.charAt(i);//progress letters
                 } 
             }
             System.out.print(scrambled); //print the 
