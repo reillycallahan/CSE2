@@ -248,14 +248,15 @@ public class Games{
             
             
             //i tried to start by scrambling the middle two letters...
-            for(int i = 1; i < (length + 1); i++){ //for i from 1-> length
+            for(int i = 1; i < length; i++){ //for i from 1-> length
                 char letters = unscram.charAt(i); //letters = all letters that make the unscrambled word
                
-                while( i > 1 && i < length){ //if its not the first or the last... 
-                    scrambled = scrambled + unscram.charAt(i) + unscram.charAt(i - 1);//put the letter thats after the next letter before that letter
+                while( i > 1 && i < (length - 1) ){ //dont change the first or the last letters 
+                    scrambled = scrambled + unscram.charAt(i + 1) + unscram.charAt(i);//put the letter thats after the next letter before that letter
                         //ie put letter B before letter A
                     i++;// increment the next letter
                     letters = unscram.charAt(i);//progress letters
+                    
                 } 
             }
             System.out.print(scrambled); //print the 
