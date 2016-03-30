@@ -251,7 +251,7 @@ public class Games{
             for(int i = 1; i < (length + 1); i++){ //for i from 1-> length
                 char letters = unscram.charAt(i); //letters = all letters that make the unscrambled word
                
-                while( i != 1 && i < length){ //if its not the first or the last... 
+                while( i > 1 && i < length){ //if its not the first or the last... 
                     scrambled = scrambled + unscram.charAt(i) + unscram.charAt(i - 1);//put the letter thats after the next letter before that letter
                         //ie put letter B before letter A
                     i++;// increment the next letter
