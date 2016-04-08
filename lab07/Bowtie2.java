@@ -19,7 +19,7 @@ public class Bowtie2{//class
         System.out.println("Please enter an integer between 3 and 33: ");
         
         //validate the input with a while loop
-      /*  boolean check = true; //intialize true boolean
+        boolean check = true; //intialize true boolean
         int n = 0; //intialize scanner input variable
         while (check){//while true
             if( scan.hasNextInt() ){ //while its an int
@@ -43,55 +43,45 @@ public class Bowtie2{//class
                 
             }
         }
-        */
-        int nStars = 9;
-        int rows = 0;
-        if( nStars % 2 == 0 ){
-            rows = nStars / 2;
-        }
-        else{
-            rows = nStars / 2 + 1;
-        }
-        System.out.print(rows);
-       // for( int i = 1; i <= rows; i++ ){
-           // System.out.print("i" + i);
-            for( int j = nStars; j >= 1; j-- ){
-                System.out.print("j" + j);
-                for( int k = j; k >= 1; k-- ){
-                    System.out.print("*");
+        //first, cosntruct the bowtie with for loops. This is the only loop that I heavily commented.
+        
+        //lets strat on the top triangle
+        for( int i = 1; i <= n ; i+=2){ //between 1 and the max number of stars..
+            for(int k = 1; k <= (i/2); k++){ //between 1 and half of the outer index..
+                System.out.print(" ");//print a space
+                //we use end bound divided by two because the max number of spaces
+                    //is half of the max number of stars
+            }
+            for(int j = n; j >= i; j--){ //bwteen max number of stars and 1..
+                System.out.print("*");//print a single star
+            }
+            System.out.println("");//now, before incrememnting i, print a new line
+        }//ends first triagnle
+        for( int i = 1; i <= n ; i+=2){//between 1 and the max number of stars..
+            if( i != 1 ){
+                for(int k = (n/2); k > (i/2); k--){ //between half the number of stars and half the  outer index..
+                    System.out.print(" "); //print a space
+                    //divide by two bc the max number of stars is double the number of spaes
+                    //this starts at n/2, opposed to 1 from above, so that it'll print the max
+                        //number of spaces and then print less spaces with each line
                 }
-                System.out.println(" ");
-                j--;
             }
-        //}
-        
-        //you need to print spaces, but you cant have all your * prints inside the spaces loop bc you get mutliple chunks
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        /*for( int i = 1; i <= nStars; i++ ){ //
-            System.out.print(i);
-            for( int k = 1; k < rows; k++ ){
-                System.out.print(" ");
-            }
-            for( int j = 0; j < i; j++ ){ //start a loop that prints i number of stars
-                System.out.print("*");
-            }//star printing loop ends
             
-            System.out.println(" ");
-            i--;
-        }*/
-
+            if( i != 1){
+                for(int j = i; j >= 1; j--){ //between outer index and 1...
+                System.out.print("*");//print a star on the same line
+                //the index goes i--> 1 (instead of n-->1) so that it'll print the minimum number
+                    //of stars first, and then incremement upwards
+                }
+                System.out.println("");//now, before incrememnting i, print a new line
+            }
+            
+        }//ends bowtie
         
-    }
-}
+        
+        //now, do the 
+        
+                  
+        
+    }//main method end
+}//class end
