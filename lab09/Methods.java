@@ -17,66 +17,73 @@ public class Methods{
         Random rand = new Random();//construct and declare random generator
         Scanner scan = new Scanner(System.in);//consturct and decalte scanner
         
-        boolean check = true;// initialize a boolean for while loop
-        
-        while( check ){
-           
-            //now run the methods for adj, nouns, verbs, nouns
-            int intAdj = rand.nextInt(10);//generates a random value 0-9
-            adjectiveGenerator(intAdj);
-            
-            int intNoun = rand.nextInt(10);
-            nounGenerator(intNoun);
-            
-            int intVerb = rand.nextInt(10);
-            verbGenerator(intVerb);
-            
-            System.out.print("the "); //prints an article 
-            
-            int intNoun2 = rand.nextInt(10);
-            noun2Generator(intNoun2);
-            
-             System.out.println(".");
-             //once one sentence has been generated, ask if they want anoter
-             System.out.println("Please enter the letter y if you would like another sentence");
-            String continueOrNah = scan.nextString();
-            //convert input to int
-                //if entered int == int for y, then check = true. if not, then check = false
-        }
-     
-    }
+       // while (true){
+            boolean check = true;// initialize a boolean for while loop
+            while( check ){ //begin an infinite loop
+                //now run the methods for adj, nouns, verbs, nouns
+                System.out.print("The "); //print an article to start the sentence
+                
+                int intAdj = rand.nextInt(10);//generates a random value 0-9
+                adjectiveGenerator(intAdj); //mehtod that generates adj
+                
+                int intNoun = rand.nextInt(10);//generates a random value 0-9
+                nounGenerator(intNoun);//mehtod that generates noun
+                
+                int intVerb = rand.nextInt(10);//generates a random value 0-9
+                verbGenerator(intVerb);//mehtod that generates verb
+                
+                System.out.print("the "); //prints an article before second noun
+                
+                int intNoun2 = rand.nextInt(10);//generates a random value 0-9
+                noun2Generator(intNoun2);//mehtod that generates second noun
+                
+                 System.out.println("."); //period at the end of the sentence
+                 
+               //once one sentence has been generated, ask if they want anoter
+                 System.out.println("Please enter 'yes' if you would like another sentence");
+                    //prompts user to enter yes for another sentence
+                String continuePlz = "yes"; //initializes variable for yes
+                String continueOrNah = scan.nextLine(); //assigns user input to a variable
+                if( continueOrNah.equals(continuePlz) ){ //if user enters yes..
+                    //keep going in the infinite loop
+                }
+                else{//if they didnt answer yes...
+                    break;//end the infiintie loop
+                }
+            }//end of infinite loop
+    }//end of main method
     public static void adjectiveGenerator(int adj){ //for the adjective
        String adjective = "hi";
         switch( adj ){
             case 0:
-                adjective = "The fantastical ";
+                adjective = "fantastical ";
                 break;
             case 1:
-                adjective = "The majestic ";
+                adjective = "majestic ";
                 break;
             case 2:
-                adjective = "A fluffy ";
+                adjective = "fluffy ";
                 break;
             case 3:
-                adjective = "The terrifying ";
+                adjective = "terrifying ";
                 break;
             case 4:
-                adjective = "An embarrassing ";
+                adjective = "embarrassing ";
                 break;
             case 5:
-                adjective = "An ebullient ";
+                adjective = "ebullient ";
                 break;
             case 6:
-                adjective = "The miniature ";
+                adjective = "miniature ";
                 break;
             case 7:
-                adjective = "The obnoxious ";
+                adjective = "obnoxious ";
                 break;
             case 8:
-                adjective = "The magnificent ";
+                adjective = "magnificent ";
                 break;
             case 9:
-                adjective = "A tiney tiny ";
+                adjective = "tiney tiny ";
                 break;
         }
         //now that you have the ajective, print it
