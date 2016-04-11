@@ -11,50 +11,49 @@ import java.util.Random;
 import java.util.Scanner;
 
 //open class and main method
-public class Methods{
+public class Methods{ 
     public static void main(String[] args){
         
         Random rand = new Random();//construct and declare random generator
         Scanner scan = new Scanner(System.in);//consturct and decalte scanner
         
-       // while (true){
-            boolean check = true;// initialize a boolean for while loop
-            while( check ){ //begin an infinite loop
-                //now run the methods for adj, nouns, verbs, nouns
-                System.out.print("The "); //print an article to start the sentence
+        boolean check = true;// initialize a boolean for while loop
+        while( check ){ //begin an infinite loop
+            //now run the methods for adj, nouns, verbs, nouns
+            System.out.print("The "); //print an article to start the sentence
                 
-                int intAdj = rand.nextInt(10);//generates a random value 0-9
-                adjectiveGenerator(intAdj); //mehtod that generates adj
+            int intAdj = rand.nextInt(10);//generates a random value 0-9
+            adjectiveGenerator(intAdj); //mehtod that generates adj
                 
-                int intNoun = rand.nextInt(10);//generates a random value 0-9
-                nounGenerator(intNoun);//mehtod that generates noun
+            int intNoun = rand.nextInt(10);//generates a random value 0-9
+            nounGenerator(intNoun);//mehtod that generates noun
                 
-                int intVerb = rand.nextInt(10);//generates a random value 0-9
-                verbGenerator(intVerb);//mehtod that generates verb
+            int intVerb = rand.nextInt(10);//generates a random value 0-9
+            verbGenerator(intVerb);//mehtod that generates verb
                 
-                System.out.print("the "); //prints an article before second noun
+            System.out.print("the "); //prints an article before second noun
                 
-                int intNoun2 = rand.nextInt(10);//generates a random value 0-9
-                noun2Generator(intNoun2);//mehtod that generates second noun
+            int intNoun2 = rand.nextInt(10);//generates a random value 0-9
+            noun2Generator(intNoun2);//mehtod that generates second noun
                 
-                 System.out.println("."); //period at the end of the sentence
+             System.out.println("."); //period at the end of the sentence
                  
-               //once one sentence has been generated, ask if they want anoter
-                 System.out.println("Please enter 'yes' if you would like another sentence");
-                    //prompts user to enter yes for another sentence
-                String continuePlz = "yes"; //initializes variable for yes
-                String continueOrNah = scan.nextLine(); //assigns user input to a variable
-                if( continueOrNah.equals(continuePlz) ){ //if user enters yes..
-                    //keep going in the infinite loop
-                }
-                else{//if they didnt answer yes...
-                    break;//end the infiintie loop
-                }
-            }//end of infinite loop
+           //once one sentence has been generated, ask if they want anoter
+             System.out.println("Please enter 'yes' if you would like another sentence");
+                //prompts user to enter yes for another sentence
+            String continuePlz = "yes"; //initializes variable for yes
+            String continueOrNah = scan.nextLine(); //assigns user input to a variable
+            if( continueOrNah.equals(continuePlz) ){ //if user enters yes..
+                //keep going in the infinite loop
+            }
+            else{//if they didnt answer yes...
+                break;//end the infiintie loop
+            }
+        }//end of infinite loop
     }//end of main method
     public static void adjectiveGenerator(int adj){ //for the adjective
-       String adjective = "hi";
-        switch( adj ){
+       String adjective = "hi"; //initializes string for adjective
+        switch( adj ){ //change the random number to....
             case 0:
                 adjective = "fantastical ";
                 break;
@@ -90,9 +89,9 @@ public class Methods{
         System.out.print(adjective);
        
     }
-    public static void nounGenerator(int adj){ //for the adjective
-       String noun = "hi";
-        switch( adj ){
+    public static void nounGenerator(int nouN){ //for the adjective
+       String noun = "hi";//initializes string for noun
+        switch( nouN ){//change the random number to....
             case 0:
                 noun = "unicorn ";
                 break;
@@ -124,13 +123,13 @@ public class Methods{
                 noun = "clown nose ";
                 break;
         }
-        //now that you have the ajective, print it
+        //now that you have the  noun, print it
         System.out.print(noun);
        
     }
-    public static void verbGenerator(int adj){ //for the adjective
-       String verb = "hi";
-        switch( adj ){
+    public static void verbGenerator(int verB){ //for the adjective
+       String verb = "hi"; //initializes verb string
+        switch( verB ){ //change random number to...
             case 0:
                 verb = "leeped over ";
                 break;
@@ -162,14 +161,14 @@ public class Methods{
                 verb = "murdered ";
                 break;
         }
-        //now that you have the ajective, print it
+        //now that you have the verb, print it
         System.out.print(verb);
        
     }
     
-    public static void noun2Generator(int adj){ //for the adjective
-       String noun2 = "hi";
-        switch( adj ){
+    public static void noun2Generator(int secondNoun){ //for the adjective
+       String noun2 = "hi"; //iniitalizes string for noun2
+        switch( secondNoun ){ //changes random number to...
             case 0:
                 noun2 = "queen";
                 break;
@@ -201,7 +200,7 @@ public class Methods{
                 noun2 = "dictionary";
                 break;
         }
-        //now that you have the ajective, print it
+        //now that you have the noun, print it
         System.out.print(noun2);
        
     }
