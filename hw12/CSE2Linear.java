@@ -61,11 +61,62 @@ public class CSE2Linear{
         System.out.println(""); //put a space
         
         System.out.print("Please enter a grade to search for: "); //prompt for a grade to search
-        int grade = scan.nextInt(); //assign the enteredvalue to a variable
-        linearSearch(grade, array); //search for this grade in the array
-        scramble(array); //scramble the grades
+        int grade = scan.nextInt(); //assign the entered value to a variable
+        
+        binarySearch(grade, array); //search for this grade in the array
+        
+       scramble(array); //scramble the grades
+            //within this method, it will check for the grade you enter 
         
     }//main meth     
+    
+    public static void binarySearch (int find, int[] gradeList){ //begin binary search
+        int lowValIndex = 0; //initialize the lowest value's index at 0, the beginning of the array
+        int lowVal = gradeList[lowValIndex]; //set the variable lowVal
+        int middleValIndex = gradeList.length / 2; // initialize the mid value's index in the middle of the array
+        int middleVal = gradeList[ middleValIndex];//set teh variable middleVal
+        int highValIndex = gradeList.length - 1; //initialize the high valu'es index at the end of the array
+        int highVal = gradeList[ highValIndex ]; //set the varibale highVal
+        int t = 1; //initialize a counter for iterations
+        do{ //do this program once while the statement at the end holds true
+            while( middleVal > find){ //if the value you want is smaller than the middle value...
+                //reassign the bounds of the array youre looking at --> look at the top half
+                highValIndex = middleValIndex; //move the high val index to the spot of the previous middle val
+                highVal = gradeList[highValIndex]; //assign highVal
+                middleValIndex = middleValIndex / 2; //move the middle value index to the spot it was at split in half
+                    //this will shorten the array of focus to the top half of the previous array
+                middleVal = gradeList[middleValIndex]; //assign middle value
+                t++;//increment t
+                //do this until the middle value isn't more than the target
+            }
+            while( middleVal < find ){ //if the value you want is bigger than the middle value...
+                //reassign the bounds of the array in focus to only look at the bottom half
+                lowValIndex = middleValIndex;//reassing the low val index to the spot of the previous middle val
+                lowVal = gradeList[lowValIndex]; //assign low val at that pt
+                middleValIndex = (highValIndex - lowValIndex) / 2 + middleValIndex; //move middle val to the point
+                    //that's inbetween the bottom half. It's this equation bc highValIndex-lowValIndex gives the number of 
+                    //members in the new section. dividing this by two gives the length from the lowvalIndex to the 
+                    //middleValIndex. adding this to the precious middleValIndex gives this distance perspective/location on the array
+                middleVal = gradeList[middleValIndex]; //assign middleVal at this point
+                t++; //incrememnt t
+                if( gradeList[middleValIndex + 1] == highVal){ //add this if statement because when you divide by two to get the
+                    //new middleIndex, you cut off the decimal (since it casts to an int). therefore you will always neglect
+                    //the final member of the array and be stuck in an infinite loop without this if statement.
+                   break;//end the infinite loop
+                }
+            }
+        } while( middleVal != find  && gradeList[middleValIndex + 1] != highVal ); //do all of this until you've found it
+            //or until you've gotten as close as you can to the last member
+        //by now, you've either found the number or determiend that it does not live in this array. print results.
+        
+        if( middleVal == find  || gradeList[middleValIndex + 1] == highVal){ //if the middle value is what youre looking for
+            //or if youve identified the target as the final member...
+            System.out.println( find + " was found after " + t + " iterations!" ); //print that youve found it after t loops
+        }
+        else{ //if you didnt find it...
+            System.out.println( find + " was not found after " + t + " iterations." ); //print that you failed
+        }
+    }//end of binary search
     
     public static void linearSearch (int find, int [] gradeList){ //searches this array
          boolean found = false;//initialize a boolean
