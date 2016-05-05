@@ -94,26 +94,25 @@ public class Search{
                 //tell user its outa range
         }
         while( inBounds ){//while its in range....
-            int low = 0;
-            int high = array2.length - 1;
-            int mid = (low + high) /2;
+            int low = 0;//assign the low to the initial index
+            int high = array2.length - 1;//assign the high to the last index
+            int mid = (low + high) /2;//assign the middle index
             do{
                 while(array2[mid] > myVal){//look at first half
-                    high = mid;
-                    mid = (low + high) / 2;
+                    high = mid;//reassign the high to the middle, shortenging the array in foucs
+                    mid = (low + high) / 2;//reassign the middle
                 }
                 while(array2[mid] < myVal){//look at last half
-                    low = mid; 
-                    mid = (low + high) / 2;
-                     //System.out.println("mid: " + mid + " midVal: " + array2[mid] + " low: " + low + " lowVal: " + array2[low] + " high: " + high + " highVal: " + array2[high]);
-                    if( (high - low) <= 2){
-                        break;
+                    low = mid; //reassign the low to teh middle, shortening the array in focus
+                    mid = (low + high) / 2;//reassign the middle
+                    if( (high - low) <= 2){//if the array is only two values long...
+                        break;//leave the infinite loop
                     }
                 }
-            } while ( array2[mid] != myVal && high - low > 2);
+            } while ( array2[mid] != myVal && high - low > 2);//do this all while you havent found the serached value and the array in focus is longer than 2
             
             
-            if (array2[low] < myVal && array2[low + 1] > myVal){ //if you didnt find it& its stuck between two low values...
+            if (array2[low] < myVal && array2[low + 1] > myVal){ //if you didnt find it& its stuck between two low values
                 System.out.println( myVal + " was not found.");//say you didnt find it
                 System.out.println("The number above the key was " + array2[low + 1]); //print the upper bound
                 System.out.println("The number below the key was " + array2[low] ); //print the lower bound
@@ -127,76 +126,6 @@ public class Search{
                 //or if youve identified the target as the final member...
                 System.out.println( myVal + " was found! "); //print that youve found it after t loops
             }
-                
-            
-            
-            
-            /*int lowValIndex = 0; //iitialize the lowest value's index at  beginning of the array
-            int lowVal = array2[lowValIndex]; //set the variable lowVal
-            int middleValIndex = array2.length / 2; // initialize the mid value's index in the middle of the array
-            int middleVal = array2[ middleValIndex];//set teh variable middleVal
-            int highValIndex = array2.length - 1; //initialize the high valu'es index at the end of the array
-            int highVal = array2[ highValIndex ]; //set the varibale highVal
-            int t = 1; //initialize a counter for iterations
-            boolean tooShort = true; //initialize boolean 
-            boolean betweenLows = false;//initialize boolean
-            boolean betweenHighs = false;//intialize boolean
-            do{ 
-                while( middleVal > myVal){ //if the value you want is smaller than the middle value...
-                    //reassign the bounds of the array youre looking at --> look at the top half
-                    highValIndex = middleValIndex; 
-                    highVal = array2[highValIndex]; //reassign highVal
-                    middleValIndex = middleValIndex / 2; //move the middle value index to the spot it was at split in half
-                    middleVal = array2[middleValIndex]; //assign middle value
-                    t++;//increment t
-                }
-                while( middleVal < myVal ){ //if the value you want is bigger than the middle value...
-                    //reassign the bounds of the array in focus to only look at the bottom half
-                    lowValIndex = middleValIndex;
-                    lowVal = array2[lowValIndex]; //reassign low val at that pt
-                    middleValIndex = (highValIndex - lowValIndex) / 2 + middleValIndex; //move middle val to the point
-                        //that's inbetween the bottom half.
-                    middleVal = array2[middleValIndex]; //reassign middleVal at this point
-                    t++; //incrememnt t
-                    if( array2[middleValIndex + 1] == array2[49]){ //add this if statement because when you divide by two to get the
-                        //new middleIndex, you cut off the decimal (since it casts to an int).
-                       break;//end the infinite loop
-                    }
-                }
-                if(middleValIndex - lowValIndex <= 1){  //if the array in focus is super short...
-                    tooShort = false;//you cant get any more focused, so you must'nt have found it
-                        //set boolean to false
-                }
-                if(array2[lowValIndex] < myVal && array2[lowValIndex + 1] > myVal){ //if target is stuck
-                    //between the lowest bound of focus and the one right above it...
-                    tooShort = false;//you cant get any closer. set false
-                    betweenLows = true;//set true
-                }
-                if( array2[highValIndex] > myVal && array2[highValIndex - 1] < myVal){//if target is stuck
-                    //between the highest bound of focus and the one right below it...
-                    tooShort = false;//you cant get any closer. set false
-                    betweenHighs = true;//set true
-                }
-                
-            } while( middleVal != myVal  && array2[middleValIndex + 1] != array2[49] && tooShort); //do all of this until you've found it
-                //or until you've gotten as close as you can to the last member
-            //by now, you've either found the number or determiend that it does not live in this array. print results.
-            
-            if( middleVal == myVal || array2[middleValIndex + 1] == array2[49] ){ //if the middle value is what youre looking for
-                //or if youve identified the target as the final member...
-                System.out.println( myVal + " was found! "); //print that youve found it after t loops
-            }
-            else if (betweenLows == true){ //if you didnt find it& its stuck between two low values...
-                System.out.println( myVal + " was not found.");//say you didnt find it
-                System.out.println("The number above the key was " + array2[lowValIndex + 1]); //print the upper bound
-                System.out.println("The number below the key was " + array2[lowValIndex] ); //print the lower bound
-            }
-            else if( betweenHighs == true){//if you didnt find it& its stuck between two low values...
-                System.out.println( myVal + " was not found.");//print that you failed
-                System.out.println("The number above the key was" + array2[highValIndex]);//print the upper bound
-                System.out.println("The number below the key was " + array2[highValIndex - 1] ); //print the lower bound
-            }*/
-            
             inBounds = false;//set the boolean to false so that it isnt infinite--> we only needed it to run oncce
         }
     }//main method
