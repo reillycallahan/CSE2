@@ -51,9 +51,9 @@ public class raggedArray{
                     if(array[i][k] < array[i][smallest]){//if the current pointer value is
                         //smaller than the smallest value..
                         smallest = k;//assign a new smallest index
-                    }
+                    } 
                 }//now youve found the smallest value in this array...
-                //swap the values
+                //swap the values...
                 int temp = array[i][j];//store the current value into temp
                 array[i][j] = array[i][smallest];//change the current value to the smallest value
                 array[i][smallest ] = temp;//put the stored value into the spot that the smallest value came from
